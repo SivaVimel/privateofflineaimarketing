@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Private Offline AI — an assistant that never leaves your iPhone</title>
+<meta name="description" content="Private Offline AI puts a real language model inside your iPhone. Chat, read documents, take notes and transcribe — with no account, no cloud and no connection required.">
+<style>
+  :root{
+    --bg:#FFFFFF; --surface:#FBF6F9; --stroke:#EDE2E9;
+    --text:#14090F; --text2:#5E5058; --text3:#8E8189;
+    --accent:#BE185D; --accent2:#EC4899;
+    --glow:rgba(236,72,153,.16);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0C0C0E; --surface:#161215; --stroke:#2A2028;
+      --text:#F5F2F4; --text2:#A69AA1; --text3:#746A70;
+      --accent:#EC4899; --accent2:#F472B6;
+      --glow:rgba(236,72,153,.22);
+    }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);
+    font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .bloom{position:fixed;inset:0;pointer-events:none;z-index:0;
+    background:
+      radial-gradient(420px circle at 88% 4%, var(--glow), transparent 70%),
+      radial-gradient(480px circle at 4% 72%, var(--glow), transparent 70%)}
+  .wrap{position:relative;z-index:1;max-width:760px;margin:0 auto;padding:56px 20px 96px}
+  .mark{display:flex;align-items:center;gap:10px;font-weight:800;font-size:15px;letter-spacing:-.2px}
+  .mark span{background:linear-gradient(135deg,var(--accent2),var(--accent));
+    -webkit-background-clip:text;background-clip:text;color:transparent}
+  .flower{width:26px;height:26px;flex:none}
+  h1{font-size:40px;line-height:1.1;letter-spacing:-1.2px;margin:30px 0 14px}
+  h1 em{font-style:normal;background:linear-gradient(135deg,var(--accent2),var(--accent));
+    -webkit-background-clip:text;background-clip:text;color:transparent}
+  h2{font-size:22px;letter-spacing:-.4px;margin:52px 0 12px}
+  h3{font-size:16px;margin:0 0 6px;color:var(--text)}
+  p,li{color:var(--text2)}
+  .lede{font-size:19px;color:var(--text);max-width:60ch}
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:22px 0}
+  @media (max-width:560px){ .grid{grid-template-columns:1fr} h1{font-size:32px} }
+  .card{background:var(--surface);border:1px solid var(--stroke);border-radius:18px;padding:18px 20px}
+  .card p{margin:0;font-size:14.5px}
+  .pill{display:inline-block;border:1px solid var(--stroke);background:var(--surface);
+    border-radius:999px;padding:5px 12px;font-size:13px;color:var(--text2);margin:4px 6px 0 0}
+  .big{background:var(--surface);border:1px solid var(--stroke);border-radius:20px;
+    padding:24px;margin:26px 0}
+  .big strong{color:var(--text)}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14.5px}
+  th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--stroke);vertical-align:top}
+  th{color:var(--text3);font-weight:600;font-size:12.5px;text-transform:uppercase;letter-spacing:.4px}
+  td{color:var(--text2)}
+  ul{padding-left:20px} li{margin:6px 0}
+  .foot{margin-top:60px;padding-top:22px;border-top:1px solid var(--stroke);
+    color:var(--text3);font-size:13.5px}
+  .foot a{color:var(--accent);margin-right:16px}
+  a{color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="bloom"></div>
+<div class="wrap">
+
+  <div class="mark">
+    <svg class="flower" viewBox="0 0 100 100" aria-hidden="true">
+      <defs>
+        <linearGradient id="p" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#EC4899"/><stop offset="1" stop-color="#BE185D"/>
+        </linearGradient>
+      </defs>
+      <g fill="url(#p)">
+        <g id="petals">
+          <ellipse cx="50" cy="26" rx="9" ry="17"/>
+        </g>
+        <use href="#petals" transform="rotate(30 50 50)"/>
+        <use href="#petals" transform="rotate(60 50 50)"/>
+        <use href="#petals" transform="rotate(90 50 50)"/>
+        <use href="#petals" transform="rotate(120 50 50)"/>
+        <use href="#petals" transform="rotate(150 50 50)"/>
+        <use href="#petals" transform="rotate(180 50 50)"/>
+        <use href="#petals" transform="rotate(210 50 50)"/>
+        <use href="#petals" transform="rotate(240 50 50)"/>
+        <use href="#petals" transform="rotate(270 50 50)"/>
+        <use href="#petals" transform="rotate(300 50 50)"/>
+        <use href="#petals" transform="rotate(330 50 50)"/>
+      </g>
+      <circle cx="50" cy="50" r="15" fill="#BE185D"/>
+      <circle cx="50" cy="50" r="15" fill="none" stroke="#EC4899" stroke-width="2.5"/>
+    </svg>
+    Private <span>Offline AI</span>
+  </div>
+
+  <h1>An assistant that <em>never leaves your iPhone</em>.</h1>
+  <p class="lede">The language model is inside the app. No account, no
+  subscription, no upload. Turn on Airplane Mode and it works exactly the same.</p>
+
+  <div>
+    <span class="pill">No account</span>
+    <span class="pill">No cloud required</span>
+    <span class="pill">No analytics</span>
+    <span class="pill">iOS 16.4+</span>
+  </div>
+
+  <div class="big">
+    <strong>Why this exists.</strong>
+    <p>Every other AI assistant is a thin client for someone else's server. What
+    you type goes to a data centre, gets logged, and is often used to train the
+    next model. This one can't do that — there is no server to send anything to.
+    The model ships in the app and runs on the phone in your hand.</p>
+  </div>
+
+  <h2>What it does</h2>
+  <div class="grid">
+    <div class="card"><h3>Chat, offline</h3>
+      <p>Draft, rewrite, summarise, explain, translate, plan. Conversations are
+      saved on the device and nowhere else.</p></div>
+    <div class="card"><h3>Read your documents</h3>
+      <p>Hand it a PDF, Word or Excel file and ask about it. Text recognition
+      runs on the phone.</p></div>
+    <div class="card"><h3>Look at your photos</h3>
+      <p>Point the camera at something, or pick a photo, and ask what it is. The
+      image never leaves the device.</p></div>
+    <div class="card"><h3>Talk to it</h3>
+      <p>Voice input and transcription, then have it summarise what was said.</p></div>
+    <div class="card"><h3>Notes and to-dos</h3>
+      <p>Write a rough note, have the AI tidy it up, export it. Tasks with
+      reminders, kept locally.</p></div>
+    <div class="card"><h3>Mail</h3>
+      <p>Connect Gmail, Outlook, Yahoo or iCloud and have it read, summarise and
+      draft. Straight to your provider — nothing through us.</p></div>
+    <div class="card"><h3>GameHub</h3>
+      <p>Built-in games, or describe one and watch the AI write it.</p></div>
+    <div class="card"><h3>Make it yours</h3>
+      <p>Eight accent colours, light and dark. The whole app follows instantly.</p></div>
+  </div>
+
+  <h2>Online only when you say so</h2>
+  <p>The core experience needs no connection. A few features can reach out, each
+  one switched on by you and switched off just as easily:</p>
+  <table>
+    <tr><th>Feature</th><th>What happens</th></tr>
+    <tr><td>Web search</td><td>Tap the globe to let a reply draw on live results</td></tr>
+    <tr><td>In-app browser</td><td>Browse with the AI alongside to explain the page</td></tr>
+    <tr><td>Your own cloud model</td>
+        <td>Prefer ChatGPT, Claude, Gemini, Groq, Mistral, DeepSeek or Qwen? Paste your own key. You are billed by them, not by us.</td></tr>
+    <tr><td>Your own local model</td>
+        <td>Import any <code>.gguf</code>, or point it at Ollama or LM Studio on your network</td></tr>
+  </table>
+
+  <h2>Honest about the trade-offs</h2>
+  <ul>
+    <li><strong>It is a big download.</strong> Around 800&nbsp;MB, because the
+    model comes with it. That is the price of not needing a server.</li>
+    <li><strong>It is a small model.</strong> Llama 3.2 1B is chosen to run well
+    on a phone. It is good at writing, rewriting and everyday questions, and it
+    will sometimes get facts wrong. Check anything that matters — or connect a
+    bigger model with your own key when you need one.</li>
+    <li><strong>Nothing syncs.</strong> There is no account, so there is no sync.
+    Your data lives on this phone and travels in your encrypted iPhone backup.</li>
+  </ul>
+
+  <div class="foot">
+    <a href="mailto:sivavimelrajhen@gmail.com">sivavimelrajhen@gmail.com</a>
+    <p style="margin-top:14px">Private Offline AI · Built with Llama. Llama 3.2 is
+    licensed under the Llama 3.2 Community License, © Meta Platforms, Inc.
+    All rights reserved.</p>
+  </div>
+</div>
+</body>
+</html>
